@@ -5,6 +5,7 @@ const ln_news = axios.create({ baseURL: "https://lemon-noon-news-board-project-w
 export const getArticles = (topic) => {
     let path='/articles';
     if (topic) {  
+        if (topic !== 'all')
         path += `?topic=${topic}`;
     }
     return ln_news
@@ -12,5 +13,14 @@ export const getArticles = (topic) => {
     .then(({data: {articles}}) => {
       
         return articles;
+    })
+}
+
+export const getTopics = () => {
+    let path='/topics';
+    return ln_news
+    .get(path)
+    .then(({data: {topics}}) => {
+        return ['all', ...topics.map((topic) => {return topic.slug;})];
     })
 }
