@@ -9,14 +9,27 @@ export default function Articles () {
     const [isError, setIsError] = useState(false);
 
     const [articlesList, setArticles] = useState([]);
+
+    const [displayNumber, setNumber] = useState(5);
+
     const [topicsList, setTopics] = useState(['all','coding', 'football', 'cooking']);
     const [topic, setTopic] = useState('');
+
+    const [order_by, setOrderBy] = useState('created_at');
     const orderBy = [
     "created_at",
     "title",
     "author",
     "votes",
     "comment_count"];
+
+    const [order, setOrder] = useState('desc');
+    const handleOrder = () => {
+        if (order === 'asc') setOrder('desc');
+        if (order === 'desc') setOrder('asc');
+    }
+
+    console.log(order);
 
     // Error Message: WebSocketClient.js:16 WebSocket connection to 'ws://localhost:3000/ws' failed: 
     // WebSocketClient	@	WebSocketClient.js:16
@@ -27,6 +40,12 @@ export default function Articles () {
 
     //consider getTopics and getArticles in same useEffect
 
+    //change created_at at preview display
+    //add votes at preview display
+    //add see details
+
+    //handle negative numbers of comments sorting
+
     useEffect(() => {
         setIsLoading(true);
         setIsError(false);
@@ -34,7 +53,7 @@ export default function Articles () {
         .then((topics) => {
             setTopics(topics)
         });
-        getArticles(topic) 
+        getArticles(displayNumber, topic, order_by) 
         .then((articles) => {
             setArticles(articles);
             setIsLoading(false);
@@ -43,7 +62,7 @@ export default function Articles () {
             setIsLoading(false);
             setIsError(true);
             });
-        }, [topic]);
+        }, [displayNumber, topic, order_by]);
     
         if (isLoading) return <p>News loading...</p>;
         if (isError) return <p>Something went wrong</p>;
@@ -55,7 +74,7 @@ return (
     //   <Next />
     //   <OrderBy /> */}
 
-    <>topics dropdown:</>
+    <button>Search by topic:</button>
     <select value={topic} onChange={(event) => {setTopic(event.target.value)}}>
         {
             topicsList.map((topic) => {    
@@ -65,9 +84,19 @@ return (
             })
         }
     </select>
+    <div className="number-buttons">
 
-    <br></br><br></br>
-    <>articles previews list:</>
+    <button>Display number:</button>
+
+    <button className="number-button" id="list-5" onClick={() => setNumber(5)}>5</button>
+
+    <button className="number-button" id="list-10" onClick={() => setNumber(10)}>10</button>
+
+    <button className="number-button" id="list-20" onClick={() => setNumber(20)}>20</button>
+
+    </div> 
+    <br></br>
+
     <section className="articles-list"><ul >
         {
             articlesList.map((article) => {
@@ -77,6 +106,7 @@ return (
                     <h5>{article.title}</h5> 
                     <h6>{article.created_at}</h6>
                     <h6>{article.author}</h6>
+                    <h6>{article.votes}</h6>
                     </li> 
                 )
                     
@@ -84,8 +114,8 @@ return (
         }
     </ul></section>
 
-    <>order_by dropdown:</>
-    {/* <select value={order_by} onChange={(event) => {setTopic(event.target.value)}}>
+    <button>Order by:</button>
+    <select value={order_by} onChange={(event) => {setOrderBy(event.target.value)}}>
         {
             orderBy.map((order_by) => {    
                 return (
@@ -93,7 +123,10 @@ return (
                 )   
             })
         }
-    </select> */}
+    </select>
+
+    <button className="asc-desc-button" id="list-5" onClick={() => handleOrder()}>{order}</button>
+    <br></br><br></br>
 
     </>
 )
