@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import '../App.css';
 
-import { getArticles } from "../utils/api"
+import { getArticles, getTopics } from "../utils/api"
 
 
-export default function Articles ({topic}) {
+export default function Articles () {
 
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
     const [articlesList, setArticles] = useState([]);
+    const [topicsList, setTopics] = useState(['coding', 'football', 'cooking']);
+    const [topic, setTopic] = useState('');
+
 
     useEffect(() => {
         setIsLoading(true);
@@ -25,19 +28,30 @@ export default function Articles ({topic}) {
             });
         }, [topic]);
     
-        if (isLoading) return <p>Loading...</p>;
+        if (isLoading) return <p>News loading...</p>;
         if (isError) return <p>Something went wrong</p>;
 
 return (
     <>
-    <>articles previews list:</>
-
-    
-    {/* //   <TopicsFilterDd />
-    //   <ArticlesPreviewsList />
+      {/* //   <TopicsFilterDd />
+    //   <ArticlesPreviewsList /> - done
     //   <Next />
     //   <OrderBy /> */}
 
+    <>topics dropdown:</>
+    <select value={topic} onChange={(event) => {setTopic(event.target.value)}}>
+        {
+            topicsList.map((topic) => {    
+                return (
+                    // <option value={topic} onChange={handleTopicChange}>{topic}</option>
+                    <option key={topic}>{topic}</option>
+                )   
+            })
+        }
+    </select>
+
+    <br></br><br></br>
+    <>articles previews list:</>
     <section className="articles-list"><ul >
         {
             articlesList.map((article) => {
