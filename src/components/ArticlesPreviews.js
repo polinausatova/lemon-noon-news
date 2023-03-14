@@ -2,16 +2,18 @@
 // import { useState} from "react";
 import { Link } from 'react-router-dom';
 
-export default function ArticlesPreviews ({articlesList}) {
+export default function ArticlesPreviews ({articlesList, setPage, page, displayNumber}) {
 
     const formatDate = (date) => {
         return  date.slice(8,10)+"."+date.slice(5,7)+"."+date.slice(0,2)+" at "+date.slice(11,16);
     }
+    // const countPage = (num) => { if (page+num>=0 & (page+num+1)*displayNumber<=articlesList.length) return (page+num); else return 0;
+    // }
 
 return (
     //add Next with new utility !!!
     <div >
-    <section ><ul className="articles-list">
+        <section ><ul className="articles-list">
         {
             articlesList.map((article) => {
                         
@@ -31,6 +33,11 @@ return (
                     
             })
         }
-    </ul></section><br></br></div>
+        </ul></section>
+
+        {/* <button className="active-button" id="prev" onClick={() => setPage(countPage(-1))}>prev</button>
+        <button className="idle-button" id="page">{page}</button>
+        <button className="active-button" id="next" onClick={() => setPage(countPage(1))}>next</button> */}
+    </div>
 )
 }
