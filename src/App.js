@@ -9,6 +9,9 @@ import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import CommentsList from './components/CommentsList'
 import AddComment from './components/AddComment'
+import Topics from './components/Topics'
+import Users from './components/Users'
+
 
 function App() {
   return (
@@ -41,6 +44,16 @@ function App() {
 
     <Route path="/articles/:article_id/comments" element={
       <AddComment />
+    }
+    />
+
+    <Route path="/topics" element={
+      <Topics />
+    }
+    />
+
+    <Route path="/users" element={
+      <Users />
     }
     />
 

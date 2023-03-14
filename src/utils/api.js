@@ -4,23 +4,24 @@ const ln_news = axios.create({ baseURL: "https://lemon-noon-news-board-project-w
 
 export const getArticles = (displayNumber, topic, order_by, order) => {
 
-    let path='/articles';
+    let path='/articles?';
+
+    // if (topic || order_by || order) path += '?';
 
     if (topic) {  
-        if (topic !== 'all')
-        path += `?topic=${topic}`;
+        if (topic !== 'all topics')
+        path += `topic=${topic}&`;
     }
 
     if (order_by) {  
         if (order_by !== 'created_at')
-        path += `?sort_by=${order_by}`;
+        path += `sort_by=${order_by}&`;
     }
 
-    if (order == 'desc') {  
-        if (order_by !== 'created_at')
-        path += `?sort_by=${order_by}`;
+    if (order !== 'desc') {  
+        path += `order=asc&`;
     }
-
+    console.log(path);
     return ln_news
     .get(path)
     .then(({data: {articles}}) => {
@@ -34,6 +35,6 @@ export const getTopics = () => {
     return ln_news
     .get(path)
     .then(({data: {topics}}) => {
-        return ['all', ...topics.map((topic) => {return topic.slug;})];
+        return ['all topics', ...topics.map((topic) => {return topic.slug;})];
     })
 }
