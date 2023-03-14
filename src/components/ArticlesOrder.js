@@ -22,11 +22,9 @@ export default function ArticlesOrder ({setOrderBy, order_by, setOrder, order}) 
         if (order === 'desc') return 'asc';
     }
 
-    // console.log(order);
-
     return (
         <>
-            <button>Order by:</button>
+            <button className="idle-button">Order by:</button>
             <select value={order_by} onChange={(event) => {setOrderBy(event.target.value)}}>
                 {
                     orderBy.map((orderOption) => {    
@@ -37,7 +35,7 @@ export default function ArticlesOrder ({setOrderBy, order_by, setOrder, order}) 
                 }
             </select>
 
-            <button id="list-5" onClick={() => handleOrder()}>{showOrder(order)}</button>
+            <button className="active-button" id="list-5" onClick={() => handleOrder()}>{showOrder(order)}</button>
             <br></br><br></br>
         </>
     )

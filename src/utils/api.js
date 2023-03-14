@@ -6,22 +6,19 @@ export const getArticles = (displayNumber, topic, order_by, order) => {
 
     let path='/articles?';
 
-    // if (topic || order_by || order) path += '?';
-
     if (topic) {  
         if (topic !== 'all topics')
         path += `topic=${topic}&`;
     }
 
     if (order_by) {  
-        if (order_by !== 'created_at')
         path += `sort_by=${order_by}&`;
     }
 
     if (order !== 'desc') {  
         path += `order=asc&`;
     }
-    console.log(path);
+
     return ln_news
     .get(path)
     .then(({data: {articles}}) => {

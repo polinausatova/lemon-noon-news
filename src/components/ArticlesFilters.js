@@ -19,11 +19,11 @@ return (
 
     <button>Display on page:</button>
 
-    <button className="number-button" id="list-5" onClick={() => setNumber(5)}>5</button>
+    <button className="active-button" id="list-5" onClick={() => setNumber(5)}>5</button>
 
-    <button className="number-button" id="list-10" onClick={() => setNumber(10)}>10</button>
+    <button className="active-button" id="list-10" onClick={() => setNumber(10)}>10</button>
 
-    <button className="number-button" id="list-20" onClick={() => setNumber(20)}>20</button>
+    <button className="active-button" id="list-20" onClick={() => setNumber(20)}>20</button>
 
 </div>
 <div>
