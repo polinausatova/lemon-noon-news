@@ -48,9 +48,9 @@ return (
     <>
     <ArticlesFilters setNumber={setNumber} setTopic={setTopic} topic={topic} setOrderBy={setOrderBy} order_by={order_by} setOrder={setOrder} order={order}/>
 
-    <ArticlesPreviews articlesList={articlesList} displayNumber={displayNumber} setPage={setPage} page={page}/>
+    <ArticlesPreviews articlesList={articlesList} setPage={setPage} page={page}/>
 
-    <OnPage setNumber={setNumber} displayNumber={displayNumber} setPage={setPage} page={page}/>
+    <OnPage setNumber={setNumber} setPage={setPage} page={page}/>
     </>
 )
 }

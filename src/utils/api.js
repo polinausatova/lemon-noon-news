@@ -22,10 +22,9 @@ export const getArticles = (displayNumber, page, topic, order_by, order) => {
     return ln_news
     .get(path)
     .then(({data: {articles}}) => {
-      
-        // return articles.slice(0, displayNumber);
-        return articles.slice((displayNumber+1)*(page-1), displayNumber*page);
 
+        return articles.slice((displayNumber)*(page-1), displayNumber*page);
+        //add upper border for the last page
     })
 }
 
