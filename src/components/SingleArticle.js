@@ -1,7 +1,7 @@
 export default function SingleArticle () {
     return (
     <>
-    <>single article display:</>
+    <>Single article display will be here:</>
     {/* // <ArticlePreviewCard />
     // <ArticleDetailsCard />
     // <Vote />
