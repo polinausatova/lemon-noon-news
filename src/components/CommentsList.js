@@ -1,7 +1,7 @@
 export default function CommentsList () {
     return (
     <>
-    <>comments list:</>
+    <>Comments list will be here:</>
     {/* //   <CommentsList />
     //   <Vote />
     //   <AddCommentBtn />

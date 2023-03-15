@@ -3,14 +3,21 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom'
 
+// import { useState} from "react";
+
 import Nav from './components/Nav'
 import Header from './components/Header'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import CommentsList from './components/CommentsList'
 import AddComment from './components/AddComment'
+import Topics from './components/Topics'
+import Users from './components/Users'
+
 
 function App() {
+
+
   return (
     <div className="App">
 
@@ -18,6 +25,11 @@ function App() {
     <Header />
 
     <Routes>
+
+    <Route path="/" element={
+      <Articles />
+    }
+    />
 
     <Route path="/articles" element={
       <Articles />
@@ -36,6 +48,16 @@ function App() {
 
     <Route path="/articles/:article_id/comments" element={
       <AddComment />
+    }
+    />
+
+    <Route path="/topics" element={
+      <Topics />
+    }
+    />
+
+    <Route path="/users" element={
+      <Users />
     }
     />
 
