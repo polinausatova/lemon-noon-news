@@ -5,8 +5,6 @@ export default function ArticleDisplay ({article, voteValue}) {
     const formatDate = (date) => {
         return  date.slice(8,10)+"."+date.slice(5,7)+"."+date.slice(0,2)+" at "+date.slice(11,16);
     }
-    
-    console.log(voteValue);
 
     return(<>
     <li className="articles-preview-card">
