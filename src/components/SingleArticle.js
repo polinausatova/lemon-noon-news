@@ -25,7 +25,7 @@ export default function SingleArticle () {
         
         getArticle(article_id) 
         .then((article) => {
-            setArticle(article); //???
+            setArticle(article);
             setIsLoading(false);
         })
         .catch((err) => {
@@ -41,7 +41,7 @@ export default function SingleArticle () {
     return (
     <>
     <ArticleDisplay article={article}/>
-    <Vote article_id={article_id}/>
+    <Vote article_id={article_id} setArticle = {setArticle}/>
     <ArticleLinks article_id={article_id}/>
 
     </>

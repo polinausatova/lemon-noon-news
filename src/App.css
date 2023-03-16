@@ -46,9 +46,12 @@
 }
 
 .article-preview-details {
-  font-size: 0.75rem; 
-  /* line-height: 0.4rem; */
+  font-size: 0.75rem;
+  /* font-weight: 700;  */
+  line-height: 0.9rem;
+  /* text-align: left; */
 }
+
 
 .article-body {
   font-size: 0.85rem; 

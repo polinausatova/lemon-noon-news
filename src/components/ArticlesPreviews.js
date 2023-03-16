@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 
-export default function ArticlesPreviews ({articlesList, setArticle_id}) {
+export default function ArticlesPreviews ({articles}) {
 
     const formatDate = (date) => {
         return  date.slice(8,10)+"."+date.slice(5,7)+"."+date.slice(0,2)+" at "+date.slice(11,16);
@@ -12,7 +12,7 @@ return (
     <div >
         <section ><ul className="articles-list">
         {
-            articlesList.map((article) => {
+            articles.map((article) => {
                         
                 return (
                     <li className="articles-preview-card" key={article.article_id}>
@@ -26,7 +26,7 @@ return (
                     </p>
 
                     <p>
-                    <Link  className="single-article" to={`/articles/${article.article_id}`}>see details
+                    <Link  className="article-preview-details" to={`/articles/${article.article_id}`}>see details
                     </Link></p> 
                     </li> 
                 )

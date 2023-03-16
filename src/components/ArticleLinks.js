@@ -8,6 +8,7 @@ export default function ArticleLinks (article_id) {
         {' | '}
 
         <Link  className="links" to={`/articles/${article_id}/comments`}>see comments</Link>
+        <br></br><br></br>
     </>
     )
 }

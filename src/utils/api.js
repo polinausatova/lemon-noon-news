@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const ln_news = axios.create({ baseURL: "https://lemon-noon-news-board-project-with.onrender.com/api"});
 
-export const getArticles = (displayNumber, page, topic, order_by, order) => {
+export const getArticles = (topic, order_by, order) => {
 
     let path='/articles?';
 
@@ -22,8 +22,7 @@ export const getArticles = (displayNumber, page, topic, order_by, order) => {
     return ln_news
     .get(path)
     .then(({data: {articles}}) => {
-
-        return articles.slice((displayNumber)*(page-1), displayNumber*page);
+        return articles;
     })
 }
 
@@ -41,7 +40,17 @@ export const getArticle = (article_id) => {
     return ln_news
     .get(path)
     .then(({data: {article}}) => {
-        console.log(article);
         return article;
     })
+}
+
+export const updateVotes = (article_id, vote) => {
+    const obj = {inc_votes: vote};
+    let path=`/articles/${article_id}`;
+    return ln_news
+    .patch(path, obj)
+    .then(({data: {article}}) => {
+        return article;
+    })
+
 }
