@@ -18,6 +18,7 @@ export default function SingleArticle () {
     const [isError, setIsError] = useState(false);
 
     const [article,setArticle]=useState({});
+    const [voteValue,setVoteValue]=useState(0);
 
     useEffect(() => {
         setIsLoading(true);
@@ -40,8 +41,8 @@ export default function SingleArticle () {
 
     return (
     <>
-    <ArticleDisplay article={article}/>
-    <Vote article_id={article_id} setArticle = {setArticle}/>
+    <ArticleDisplay article={article} voteValue={voteValue}/>
+    <Vote article_id={article_id} setArticle = {setArticle} setVoteValue={setVoteValue}/>
     <ArticleLinks article_id={article_id}/>
 
     </>

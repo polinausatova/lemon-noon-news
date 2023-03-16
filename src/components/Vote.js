@@ -1,61 +1,48 @@
 import '../App.css';
-
 import { useState} from "react";
-
 import { updateVotes } from "../utils/api"
 
-export default function Vote ({article_id, setArticle}) {
+export default function Vote ({article_id, setVoteValue}) {
 
     const [isVotingErr, setIsVotingErr] = useState(false);
-    const [userVote, setUserVote] = useState(0);
+    const [voteDisplay, setVoteDisplay] = useState(0);
 
-
-    const votesUpdate = (voted) =>{
-        if (userVote === 0) {
+    const votesUpdate = (vote) =>{
+        if (voteDisplay === 0) { //allows user to vote if current vote is zero
         
-        setIsVotingErr(false);
+            setIsVotingErr(false);
+            setVoteDisplay(vote);
+            setVoteValue(vote); //votes updated optimistically
 
-        console.log(voted);
-        setUserVote(voted);
-        setArticle((currentArticle) => {
-            const votes = currentArticle.votes;
-            currentArticle.votes = votes +voted;
-            return currentArticle;
-        }); 
-
-        updateVotes(article_id, voted)
-        .then((articleUpdated) => {
-            setArticle(articleUpdated);
-        })
-        .catch(() => {
-            setIsVotingErr(true);
-            setUserVote(0);
-        });
-        }
-
-        else if (voted !== userVote){
-            setUserVote(0);
-            updateVotes(article_id, voted)
-            .then((articleUpdated) => {
-        
-                console.log(articleUpdated);
-                setArticle(articleUpdated);
-            })
+            updateVotes(article_id, vote) //patch request
             .catch(() => {
                 setIsVotingErr(true);
-                setUserVote(-voted);
+                setVoteDisplay(0);
+            });
+        }
+        else if (vote !== voteDisplay) { //allows user to revoke the vote and set it to 0
+            
+            setIsVotingErr(false);
+            setVoteDisplay(0); 
+            setVoteValue(0); //votes updated optimistically
+            console.log(vote);
+
+            updateVotes(article_id, vote) //patch request
+            .catch(() => {
+                setIsVotingErr(true);
+                setVoteDisplay(-vote); //?
             });
         }
     }
+    
 
-    console.log(userVote);
-
-   const message1 = userVote ===-1 || userVote ===1 ? 'Thank you for your vote!':'Give your vote for this article:';
+   const message = voteDisplay ===-1 || voteDisplay ===1 ? 'Thank you for your vote!':'Give your vote for this article:';
+   const errMessage = isVotingErr && 'Sorry something went wrong'
 
     return(<>
-    <button className="idle-button">{message1}</button>
+    <button className="idle-button">{errMessage ? errMessage : message}</button>
     <button className="active-button" onClick={() => votesUpdate(1)}>Up</button>
-    <button className="idle-button">{userVote}</button>
+    <button className="idle-button">{voteDisplay}</button>
     <button className="active-button" onClick={() => votesUpdate(-1)}>Down</button>
     <br></br>
     </>)
