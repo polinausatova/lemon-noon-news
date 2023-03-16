@@ -32,7 +32,7 @@ export const getTopics = () => {
     return ln_news
     .get(path)
     .then(({data: {topics}}) => {
-        return ['all topics', ...topics.map((topic) => {return topic.slug;})];
+        return topics;
     })
 }
 

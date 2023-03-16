@@ -1,24 +1,37 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 import { getTopics } from "../utils/api"
 
 export default function ArticlesFilters ({
-    setTopic, 
-    topic, 
+    setCurrentTopic, 
+    currentTopic, 
     setOrderBy, 
     order_by, 
     setOrder, 
-    order}) {
+    order,
+    topicsList}) {
 
-    const [topicsList, setTopics] = useState([
-        'all topics','coding', 'football', 'cooking'
-    ]);
+    // const [topicsList, setTopics] = useState([
+    //     'all topics','coding', 'football', 'cooking'
+    // ]);
 
-    useEffect(() => {
-        getTopics()
-        .then((topics) => {
-            setTopics(topics)
-        });  
-    }, [])
+    // useEffect(() => {
+    //     getTopics()
+    //     .then((topics) => {
+    //         const topicsUpdated = ['all topics', ...topics.map((topic) => {return topic.slug;})];
+    //         setTopics(topicsUpdated)
+    //     });  
+    // }, [])
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const topicQuery = searchParams.get('topic');
+
+    const setTopicQuery = (slug) => {
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set('topic', slug);
+        setSearchParams(newParams);
+    };
+
 
     const orderBy = [
         "created_at",
@@ -50,7 +63,7 @@ export default function ArticlesFilters ({
     <div>
         <button>Search by topic:</button>
 
-        <select value={topic} onChange={(event) => {setTopic(event.target.value)}}>
+        <select value={currentTopic} onChange={(event) => {setCurrentTopic(event.target.value); setTopicQuery(event.target.value)}}>
             {
                 topicsList.map((topicOption) => {    
                     return (
