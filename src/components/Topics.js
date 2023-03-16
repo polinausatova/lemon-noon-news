@@ -4,9 +4,7 @@ const Topics = () => {
         <div>
             <div>
                 Topics will be here
-                
             </div>
-            {/* <div className="filler"></div> */}
         </div>
     )
 }
