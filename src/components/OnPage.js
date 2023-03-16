@@ -11,7 +11,7 @@ export default function OnPage ({
     }
 
     return(
-        <>
+        <div>
         <div>
        
             <button>Display on page:</button>
@@ -31,6 +31,6 @@ export default function OnPage ({
             <button className="active-button" id="next" onClick={() => setPage(countPage(1))}>next</button>
 
         </div>
-        </>
+        </div>
     )
 }

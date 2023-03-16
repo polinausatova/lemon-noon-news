@@ -17,7 +17,7 @@ export default function SingleArticle () {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
-    const [article,setArticle]=useState({});
+    const [article, setArticle]=useState({});
     const [voteValue,setVoteValue]=useState(0);
 
     useEffect(() => {
