@@ -1,11 +1,10 @@
-import '../App.css';
-
-
 const Topics = () => {
 
     return (
         <div>
-            Topics:
+            <div>
+                Topics will be here
+            </div>
         </div>
     )
 }
