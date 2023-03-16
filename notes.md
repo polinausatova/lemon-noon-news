@@ -1,4 +1,5 @@
     //css: 
+    //centering
     //to fill whole page
     //buttons interaction
     //buttons in mobile screen
