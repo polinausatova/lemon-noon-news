@@ -22,9 +22,10 @@ export const getArticles = (topic, order_by, order) => {
     return ln_news
     .get(path)
     .then(({data: {articles}}) => {
+
         return articles;
     })
-}
+  }
 
 export const getTopics = () => {
     let path='/topics';

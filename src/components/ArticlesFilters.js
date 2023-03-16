@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/api"
 
-import '../App.css';
-
-
 export default function ArticlesFilters ({
     setTopic, 
     topic, 

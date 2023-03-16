@@ -44,7 +44,6 @@ export default function SingleArticle () {
     <ArticleDisplay article={article} voteValue={voteValue}/>
     <Vote article_id={article_id} setArticle = {setArticle} setVoteValue={setVoteValue}/>
     <ArticleLinks article_id={article_id}/>
-
     </>
 )
 }

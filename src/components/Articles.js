@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+// import { Link } from 'react-router-dom';
+
 import '../App.css';
 
 import { getArticles } from "../utils/api"
@@ -7,7 +9,6 @@ import { getArticles } from "../utils/api"
 import ArticlesFilters from "./ArticlesFilters"
 import ArticlesPreviews from "./ArticlesPreviews"
 import OnPage from "./OnPage"
-
 
 export default function Articles () {
 
@@ -28,7 +29,7 @@ export default function Articles () {
     useEffect(() => {
         setIsLoading(true);
         setIsError(false);
-        
+ 
         getArticles(topic, order_by, order) 
         .then((articles) => {
             setArticles(articles);
@@ -50,7 +51,6 @@ return (
     <>
     <ArticlesFilters setNumber={setNumber} setTopic={setTopic} topic={topic} setOrderBy={setOrderBy} order_by={order_by} setOrder={setOrder} order={order}/>
 
-    {/* <ArticlesPreviews articlesList={articlesList} setPage={setPage} page={page}/> */}
     <ArticlesPreviews articles={articles}/>
 
     <OnPage setNumber={setNumber} setPage={setPage} page={page}/>

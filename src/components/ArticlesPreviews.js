@@ -11,26 +11,24 @@ return (
 
     <div >
         <section ><ul className="articles-list">
-        {
-            articles.map((article) => {
-                        
+          {articles.map((article) => {
+      
                 return (
                     <li className="articles-preview-card" key={article.article_id}>
 
                     <h5>{article.title}</h5> 
                     <p className="article-preview-details">Article posted {formatDate(article.created_at)}
-                    &nbsp;by {article.author}
-                    <br></br>
-                    &nbsp;votes: {article.votes}
-                    &nbsp;comments: {article.comment_count}
-                    </p>
 
+                      &nbsp;by {article.author}
+                      <br></br>
+                      &nbsp;votes: {article.votes}
+                      &nbsp;comments: {article.comment_count}
+                    </p>
                     <p>
                     <Link  className="article-preview-details" to={`/articles/${article.article_id}`}>see details
                     </Link></p> 
                     </li> 
                 )
-                    
             })
         }
         </ul></section>
