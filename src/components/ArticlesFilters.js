@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
-import { getTopics } from "../utils/api"
 
 export default function ArticlesFilters ({
     setCurrentTopic, 
@@ -10,18 +8,6 @@ export default function ArticlesFilters ({
     setOrder, 
     order,
     topicsList}) {
-
-    // const [topicsList, setTopics] = useState([
-    //     'all topics','coding', 'football', 'cooking'
-    // ]);
-
-    // useEffect(() => {
-    //     getTopics()
-    //     .then((topics) => {
-    //         const topicsUpdated = ['all topics', ...topics.map((topic) => {return topic.slug;})];
-    //         setTopics(topicsUpdated)
-    //     });  
-    // }, [])
 
     const [searchParams, setSearchParams] = useSearchParams();
     const topicQuery = searchParams.get('topic');
