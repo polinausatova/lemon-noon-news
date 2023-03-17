@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 
 import { getArticle } from "../utils/api"
 
-import '../App.css';
-
 import ArticleDisplay from "./ArticleDisplay"
 import Vote from "./Vote"
 import ArticleLinks from "./ArticleLinks"
