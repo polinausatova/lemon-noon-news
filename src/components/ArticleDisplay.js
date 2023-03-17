@@ -19,7 +19,7 @@ export default function ArticleDisplay ({article, voteValue}) {
             <p className="article-body">
             {article.body}   
             <br></br>
-            <img src="{article_img_url}" alt="Picture" />
+            <img src="{article_img_url}" alt="Cute illustration" />
             </p>
         </li>
     )
