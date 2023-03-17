@@ -41,7 +41,6 @@ export default function Vote ({article_id, setVoteValue}) {
     <button className="idle-button">{errMessage ? errMessage : message}</button>
     <button className="active-button" onClick={() => votesUpdate(1)}>Up</button>
     <button className="idle-button">{voteDisplay}</button> 
-    {/* //intentionally shows users current vote. votes count is up on article display */}
     <button className="active-button" onClick={() => votesUpdate(-1)}>Down</button>
     <br></br>
     </>)
