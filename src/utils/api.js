@@ -55,3 +55,12 @@ export const updateVotes = (article_id, vote) => {
     })
 
 }
+
+export const getComments = (article_id) => {
+    let path=`/articles/${article_id}/comments`;
+    return ln_news
+    .get(path)
+    .then(({data:{comments}}) => {
+        return comments;
+    })
+}
