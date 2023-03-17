@@ -8,7 +8,6 @@ import { getTopics } from './utils/api'
 
 import Nav from './components/Nav'
 import Header from './components/Header'
-import Main from './components/Main'
 
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'

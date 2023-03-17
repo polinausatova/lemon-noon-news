@@ -19,9 +19,11 @@ export default function Articles ({topicsList}) {
     const [displayNumber, setNumber] = useState(5);
     const [page, setPage] = useState(1);
 
-    const params = useParams();
+    const params = useSearchParams();
 
-    const { topic } = useParams();
+    const { topic } = useSearchParams();
+
+    console.log(topic);
 
     const [currentTopic, setCurrentTopic] = useState(topic);
 
