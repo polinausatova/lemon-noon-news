@@ -31,7 +31,7 @@ export default function CommentsList () {
             setIsLoading(false);
             setIsError(true);
             });
-        }, []
+        }, [article_id]
     );
     
     if (isLoading) return <p>Comments loading...</p>;

@@ -10,7 +10,6 @@ export default function ArticlesFilters ({
     topicsList}) {
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const topicQuery = searchParams.get('topic');
 
     const setTopicQuery = (slug) => {
         const newParams = new URLSearchParams(searchParams);
@@ -72,7 +71,7 @@ export default function ArticlesFilters ({
                     })
                 }
         </select>
-
+        
         <button className="active-button" onClick={() => handleOrder()}>{showOrder(order)}</button>
         <br></br>
     </div>

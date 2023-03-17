@@ -3,6 +3,7 @@
   background-color: rgba(246, 248, 123, 0.746);
   grid-template-areas: ". articles-list .";
   grid-template-columns: ". 80% .";
+  min-height: 100vh;
 }
 
 .Nav {

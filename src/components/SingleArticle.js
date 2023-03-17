@@ -31,7 +31,7 @@ export default function SingleArticle () {
             setIsLoading(false);
             setIsError(true);
             });
-        }, []
+        }, [article_id]
     );
     
     if (isLoading) return <p>Article loading...</p>;

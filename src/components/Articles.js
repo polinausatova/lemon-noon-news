@@ -19,7 +19,7 @@ export default function Articles ({topicsList}) {
     const [displayNumber, setNumber] = useState(5);
     const [page, setPage] = useState(1);
 
-    const [ searchParams, setSearchParams ] = useSearchParams(); 
+    const [ searchParams ] = useSearchParams(); 
   
     const topicFromQuery = searchParams.get('topic')
     console.log (topicFromQuery);

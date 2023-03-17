@@ -8,19 +8,19 @@ export default function ArticleDisplay ({article, voteValue}) {
 
     return(
         <li className="articles-preview-card">
-        <h5>{article.title}</h5> 
-        <p className="article-preview-details">Article posted {formatDate(article.created_at)}
-        <br></br>by {article.author}
-        <br></br>in topic: {article.topic}
-        <br></br>votes: {article.votes + voteValue}
-        &nbsp;comments: {article.comment_count}
-        </p> 
-        
-        <p className="article-body">
-        {article.body}   
-        <br></br>
-        <img src="{article_img_url}" />
-        </p>
+            <h5>{article.title}</h5> 
+            <p className="article-preview-details">Article posted {formatDate(article.created_at)}
+            <br></br>by {article.author}
+            <br></br>in topic: {article.topic}
+            <br></br>votes: {article.votes + voteValue}
+            &nbsp;comments: {article.comment_count}
+            </p> 
+            
+            <p className="article-body">
+            {article.body}   
+            <br></br>
+            <img src="{article_img_url}" alt="Picture" />
+            </p>
         </li>
     )
 }
