@@ -1,3 +1,10 @@
+    //to do:
+    
+    //faking url with articles?topic=  - DONE
+    //topics page - like articles page - DONE
+    //single topic link connects to articles?topic= NO
+    //add programmatic navigation
+
     //css: 
     //centering
     //to fill whole page
@@ -7,6 +14,7 @@
     // articles:
     //get rid of page 0
     //set maximum pages
+    //set fake URLs for all queries
 
     //try to refactor queries as in Dave's lections
     //also look at class usage
